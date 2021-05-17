@@ -1,9 +1,9 @@
 package com.joa.cocktail.menu.dto;
 
 import com.joa.cocktail.menu.domain.Cocktail;
+
 import lombok.Getter;
 
-import javax.persistence.Column;
 
 @Getter
 public class CocktailResponseDto {
@@ -19,6 +19,17 @@ public class CocktailResponseDto {
         this.cocktailContent = entity.getCocktailContent();
         this.cocktailImg = entity.getCocktailImg();
         this.cocktailComment = entity.getCocktailComment();
+    }
+
+    @Override
+    public String toString() {
+        return "CocktailResponseDto{" +
+                "cocktailNo=" + cocktailNo +
+                ", cocktailName='" + cocktailName + '\'' +
+                ", cocktailContent='" + cocktailContent + '\'' +
+                ", cocktailImg='" + cocktailImg + '\'' +
+                ", cocktailComment='" + cocktailComment + '\'' +
+                '}';
     }
 }
 

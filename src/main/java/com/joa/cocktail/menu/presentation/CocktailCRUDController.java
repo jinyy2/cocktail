@@ -1,18 +1,19 @@
 package com.joa.cocktail.menu.presentation;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.joa.cocktail.menu.application.CocktailService;
+import com.joa.cocktail.menu.dto.CocktailResponseDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1")
-@CrossOrigin({"http://localhost:8081","http://localhost:3000"})
-public class MenuCRUDController {
+//@RequestMapping("/api/v1")
+//@CrossOrigin({"http://localhost:8081","http://localhost:3000"})
+public class CocktailCRUDController {
+    private final CocktailService cocktailService;
 
-    @GetMapping("/menus")
-    public ResponseEntity selectPageMenus(){
-        return ResponseEntity.ok()
+    @GetMapping("/menu/{id}")
+    public CocktailResponseDto findById(@PathVariable Long id){
+        return cocktailService.findById(id);
     }
 }
