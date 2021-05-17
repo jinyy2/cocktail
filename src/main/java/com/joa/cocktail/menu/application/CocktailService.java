@@ -14,9 +14,7 @@ public class CocktailService {
 
     @Transactional(readOnly = true)
     public CocktailResponseDto findById(Long id){
-        System.out.println("ddd11");
         Cocktail entity = cocktailRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 메뉴가 없습니다."));
-        System.out.println("ddd12");
         return new CocktailResponseDto(entity);
     }
 
